@@ -44,7 +44,7 @@ static int cmd_si(char *args) {
     steps = atoi(args);  
   }
   for (int i = 0; i < steps; i++) {
-    cpu_exec(1); 
+     cpu_exec(1); 
   }
 
   return 0;
