@@ -39,10 +39,7 @@ static int cmd_q(char *args) {
 static int cmd_help(char *args);
 
 static int cmd_si(char *args) {
-/* extract the first argument */
-  //char *arg = strtok(NULL, " ");
   printf("start single step! ");
-  
   return 0;
 }
 
@@ -118,7 +115,8 @@ void ui_mainloop(int is_batch_mode) {
         break;
       }
     }
-
     if (i == NR_CMD) { printf("Unknown command '%s'\n", cmd); }
   }
 }
+
+
