@@ -16,7 +16,7 @@ enum { R_AL, R_CL, R_DL, R_BL, R_AH, R_CH, R_DH, R_BH };//8
  * For more details about the register encoding scheme, see i386 manual.
  */
 
-typedef struct {
+typedef struct cpu{
   struct {
     uint32_t _32;
     uint16_t _16;
@@ -39,7 +39,6 @@ static inline int check_reg_index(int index) {
   assert(index >= 0 && index < 8);
   return index;
 }
-
 #define reg_l(index) (cpu.gpr[check_reg_index(index)]._32)
 #define reg_w(index) (cpu.gpr[check_reg_index(index)]._16)
 #define reg_b(index) (cpu.gpr[check_reg_index(index) & 0x3]._8[index >> 2])
