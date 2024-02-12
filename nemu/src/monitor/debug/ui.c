@@ -39,7 +39,15 @@ static int cmd_q(char *args) {
 static int cmd_help(char *args);
 
 static int cmd_si(char *args) {
-  printf("start single step! ");
+  int steps = 1; 
+  if (args != NULL) {
+    steps = atoi(args);  
+  }
+
+  for (int i = 0; i < steps; i++) {
+    printf("step: %d ",i);
+  }
+
   return 0;
 }
 
