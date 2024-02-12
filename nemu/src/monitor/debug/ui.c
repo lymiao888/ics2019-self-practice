@@ -43,9 +43,8 @@ static int cmd_si(char *args) {
   if (args != NULL) {
     steps = atoi(args);  
   }
-
   for (int i = 0; i < steps; i++) {
-    printf("step: %d ",i);
+    cpu_exec(1); 
   }
 
   return 0;
