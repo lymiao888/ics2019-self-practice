@@ -2,7 +2,6 @@
 #include "monitor/expr.h"
 #include "monitor/watchpoint.h"
 #include "nemu.h"
-
 #include <stdlib.h>
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -39,17 +38,34 @@ static int cmd_q(char *args) {
 static int cmd_help(char *args);
 
 static int cmd_si(char *args) {
-  int steps = 1; 
-  if (args != NULL) {
-    steps = atoi(args);  
+  char *arg = strtok(NULL, " ");
+  int step;
+  if (arg ==NULL) {
+    step = 1;
   }
-  for (int i = 0; i < steps; i++) {
+  else {
+    step = atoi(args);  
+  }
+  for (int i = 0; i < step; i++) {
      cpu_exec(1); 
   }
-
   return 0;
 }
-
+static int cmd_info(char *args) {
+  char *arg = strtok(NULL, " ");
+  char para = *arg;
+  if (args == NULL) {
+    printf("you need add a para\n\'r\':Print register status\n\'w\':Print monitoring point information");
+  }
+  else{
+    
+    if (para == 'r')
+      isa_reg_display();
+    else if (para == 'w')
+      ;
+  }
+  return 0;
+}
 
 static struct {
   char *name;
@@ -60,6 +76,7 @@ static struct {
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
   { "si","Let the program execute N instructions in a single step and then pause execution.N default = 1", cmd_si },
+  { "info","print status program",cmd_info }
   /* TODO: Add more commands */
 
 };

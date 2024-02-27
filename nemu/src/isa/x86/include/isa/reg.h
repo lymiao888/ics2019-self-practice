@@ -57,5 +57,5 @@ static inline const char* reg_name(int index, int width) {
     default: assert(0);
   }
 }
-
+void isa_reg_display();
 #endif
