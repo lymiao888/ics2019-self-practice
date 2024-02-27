@@ -54,7 +54,7 @@ static int cmd_si(char *args) {
 static int cmd_info(char *args) {
   char *arg = strtok(NULL, " ");
   if (args == NULL) {
-    printf("you need add a para\n\'r\':Print register status\n\'w\':Print monitoring point information");
+    printf("you need add a para\n\'r\':Print register status\n\'w\':Print monitoring point information\n");
   }
   else{  
     char para = *arg; 
