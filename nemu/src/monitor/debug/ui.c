@@ -57,8 +57,7 @@ static int cmd_info(char *args) {
   if (args == NULL) {
     printf("you need add a para\n\'r\':Print register status\n\'w\':Print monitoring point information");
   }
-  else{
-    
+  else{  
     if (para == 'r')
       isa_reg_display();
     else if (para == 'w')
