@@ -46,6 +46,10 @@ void isa_reg_display() {
     printf("%s = 0x%08X\t", regsl[i], cpu.gpr[i]._32);
     if((i + 1) % 4 == 0) printf("\n");
   }
+  for(i = 0; i < 8; i++) {
+    printf("%s = 0x%08X\t", regsw[i], cpu.gpr[i]._16);
+    if((i + 1) % 4 == 0) printf("\n");
+  }
   printf("\npc = 0x%08x\n",cpu.pc);
 }
 
